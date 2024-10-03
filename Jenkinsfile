@@ -28,7 +28,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('sonarqube-server') {
-                    sh "${scannerHome}/bin/sonar-scanner \
+                    sh "${scannerHome}/bin/sonar-scanner -X \
                         -Dsonar.projectKey=valaxy47-key_twittertrend\
                         -Dsonar.organization=valaxy47-key  \
                         -Dsonar.login=cd4f8464b5fbc728783196718021d97ea4bc6060 \
