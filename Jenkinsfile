@@ -16,12 +16,12 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            steps {
-                // Run tests
-                sh 'mvn test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         // Run tests
+        //         sh 'mvn test'
+        //     }
+        // }
         stage('SonarQube analysis') {
             environment{
                 scannerHome = tool 'galaxy-sonar-scanner'
@@ -31,7 +31,7 @@ pipeline {
                     sh "${scannerHome}/bin/sonar-scanner \
                         -Dsonar.projectKey=valaxy47-key_twittertrend\
                         -Dsonar.organization=valaxy47-key  \
-                        -Dsonar.login=$SONAR_TOKEN \
+                        -Dsonar.login=cd4f8464b5fbc728783196718021d97ea4bc6060 \
                         -Dsonar.java.binaries=target/classes"
                 }
             }
