@@ -7,8 +7,8 @@ platforms: java
 
 
   Azure Batch sample for managing pool -
-   - Create IaaS pool
-   - Wait the VMs to be ready
+   - Create IaaS pools
+   - Wait the VMs to be ready to check
    - Submit a simple job with task associated with resource file
      - Upload file to Azure storage
      - Generate the SAS url for the file
