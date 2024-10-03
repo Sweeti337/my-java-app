@@ -1,36 +1,16 @@
 pipeline {
-    agent any 
-
+    agent {
+        node {
+            label 'maven'
+        } 
+    }
+    environment{
+         PATH ="/opt/apache-maven-3.9.9/bin:$PATH"
+    }
     stages {
-        stage('Build') {
+        stage("build"){
             steps {
-                // Build the project
-                sh 'mvn clean package'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                // Run tests
-                sh 'mvn test'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                // Example deployment step (just echoing here)
-                echo 'Deploying application...'
-                // You can add your deployment logic here
+                sh 'mvn clean deploy'
             }
         }
     }
-
-    post {
-        success {
-            echo 'Build and tests succeeded!'
-        }
-        failure {
-            echo 'Build or tests failed!'
-        }
-    }
-}
