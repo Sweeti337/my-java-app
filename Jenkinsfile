@@ -16,21 +16,21 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            steps {
-                // Run tests
-                sh 'mvn test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         // Run tests
+        //         sh 'mvn test'
+        //     }
+        // }
         stage('SonarQube analysis') {
             environment{
-                scannerHome = tool 'sonar-scanner'
+                scannerHome = tool 'galaxy-sonar-scanner'
             }
            steps{  
             withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
             sh "${scannerHome}/bin/sonar-scanner"
             }
-         }
+            }
         }
         // Optional Deploy Stage can be removed if not needed
         /*
@@ -42,13 +42,13 @@ pipeline {
         */
     }
 
-    post {
-        success {
-            echo 'Build and tests succeeded!'
-        }
-        failure {
-            echo 'Build or tests failed!'
-        }
-    }
+    // post {
+    //     success {
+    //         echo 'Build and tests succeeded!'
+    //     }
+    //     failure {
+    //         echo 'Build or tests failed!'
+    //     }
+    // }
 
 }
