@@ -37,8 +37,4 @@
   <modules>
     <module>./PoolAndResourceFile</module>
   </modules>
- <properties>
-  <sonar.organization>valaxy47-key</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
 </project>
